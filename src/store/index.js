@@ -7,10 +7,14 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     currentUser: {},
+    search: "",
   },
   mutations: {
     setCurrentUser(state, currentUser) {
       return (state.currentUser = currentUser);
+    },
+    setSearchValue(state, search) {
+      return (state.search = search);
     },
   },
   actions: {
@@ -19,6 +23,10 @@ const store = new Vuex.Store({
       if (context.currentUser === currentUser) return;
       context.commit("setCurrentUser", currentUser);
     },
+    setSearchValue(context, search) {
+      if (context.search === search) return;
+      context.commit("setSearchValue", search);
+    },
 
     resetState() {
       // context.dispatch("setCurrentUser", {});
@@ -26,6 +34,7 @@ const store = new Vuex.Store({
   },
   getters: {
     currentUser: (state) => state.currentUser,
+    searchValue: (state) => state.search,
   },
 });
 

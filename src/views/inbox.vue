@@ -15,13 +15,19 @@
         }}</v-icon
       >{{ getGreetingData }},
       {{ $store.getters.currentUser.name }} !</v-card-title
-    >
+    ><dataTable :data="database" :tableTitle="'Inbox'" />
   </v-container>
 </template>
 <script>
+import dataTable from "../components/table/dataTable.vue";
+import { database } from "../resources/mailDatabase";
 export default {
   name: "inbox-component",
-  data: () => ({}),
+  data: () => ({ database }),
+  components: {
+    dataTable,
+  },
+
   computed: {
     getGreetingData() {
       var today = new Date();

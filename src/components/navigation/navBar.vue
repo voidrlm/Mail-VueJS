@@ -1,12 +1,18 @@
 <template>
   <nav>
-    <v-navigation-drawer
-      v-model="showNavbarDrawer"
-      app
-      class="accent"
-      width="245"
-    >
-      <v-list nav rounded class="mt-2 pa-5">
+    <v-navigation-drawer app class="accent" width="245" permanent>
+      <v-list nav rounded class="pa-5">
+        <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          class="rounded-xl mb-5"
+          single-line
+          solo
+          hide-details
+          flat
+          @change="setSearchValue"
+        ></v-text-field>
         <v-list-item
           v-for="item in items"
           :key="item.title"
@@ -26,7 +32,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <app-bar @openCloseNavBar="showNavbarDrawer = !showNavbarDrawer" />
+    <app-bar />
   </nav>
 </template>
 
@@ -38,11 +44,21 @@ export default {
   },
 
   data: () => ({
-    showNavbarDrawer: true,
+    search: "",
     items: [
       { title: "Inbox", icon: "mdi-inbox", route: "/inbox" },
       { title: "Important", icon: "mdi-star", route: "/important" },
     ],
   }),
+  watch: {
+    search() {
+      this.setSearchValue();
+    },
+  },
+  methods: {
+    setSearchValue() {
+      this.$store.dispatch("setSearchValue", this.search);
+    },
+  },
 };
 </script>
