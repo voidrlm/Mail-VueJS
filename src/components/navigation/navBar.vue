@@ -48,6 +48,10 @@ export default {
     items: [
       { title: "Inbox", icon: "mdi-inbox", route: "/inbox" },
       { title: "Important", icon: "mdi-star", route: "/important" },
+      { title: "Sent", icon: "mdi-send", route: "/sent" },
+      { title: "Draft", icon: "mdi-file", route: "/draft" },
+      { title: "Spam", icon: "mdi-alert-octagon-outline", route: "/spam" },
+      { title: "Thrash", icon: "mdi-delete", route: "/thrash" },
     ],
   }),
   watch: {
