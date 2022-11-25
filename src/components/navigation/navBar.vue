@@ -6,13 +6,28 @@
           v-model="search"
           append-icon="mdi-magnify"
           label="Search"
-          class="rounded-xl mb-5"
+          class="rounded-xl mb-3"
           single-line
           solo
           hide-details
           flat
           @change="setSearchValue"
         ></v-text-field>
+        <v-list-item
+          class="mb-3"
+          link
+          v-model="showNewMail"
+          @click="showNewMail = true"
+        >
+          <v-list-item-icon class="mx-5">
+            <v-icon size="30">mdi-pencil</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title class="body-2 font-weight-bold"
+              >Create</v-list-item-title
+            >
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item
           v-for="item in items"
           :key="item.title"
@@ -32,15 +47,20 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <app-bar />
+    <app-bar /><newMailBottom
+      :show="showNewMail"
+      @closeDialog="showNewMail = false"
+    />
   </nav>
 </template>
 
 <script>
+import newMailBottom from "../newMail/newMailBottom.vue";
 import appBar from "./appBar.vue";
 export default {
   components: {
     appBar,
+    newMailBottom,
   },
 
   data: () => ({
@@ -53,6 +73,7 @@ export default {
       { title: "Spam", icon: "mdi-alert-octagon-outline", route: "/spam" },
       { title: "Thrash", icon: "mdi-delete", route: "/thrash" },
     ],
+    showNewMail: false,
   }),
   watch: {
     search() {
