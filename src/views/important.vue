@@ -14,7 +14,7 @@
           return mail.isImportant;
         })
       "
-      :tableTitle="'Inbox'"
+      :tableTitle="'Important'"
     />
   </v-container>
 </template>
