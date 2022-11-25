@@ -1,16 +1,17 @@
 <template>
   <div>
     <v-data-table
-      class="secondary rounded-xl"
+      class="transparent"
       :headers="headers"
       :items="data"
       :search="this.$store.getters.searchValue || ''"
       hide-default-footer
+      :no-data-text="'No Mail Found'"
     >
       <template v-slot:item="{ item }">
         <tr>
-          <td class="text-center">{{ item.sender }}</td>
-          <td class="truncate">{{ item.body }}</td>
+          <td class="text-start">{{ item.sender }}</td>
+          <td class="text-start truncate">{{ item.body }}</td>
         </tr>
       </template></v-data-table
     >
