@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-data-table
-      class="transparent"
+      class="transparent mx-1"
       :headers="headers"
       :items="data"
       :search="this.$store.getters.searchValue || ''"
@@ -10,6 +10,9 @@
     >
       <template v-slot:item="{ item }">
         <tr>
+          <td class="text-start">
+            <v-checkbox></v-checkbox>
+          </td>
           <td class="text-start">{{ item.sender }}</td>
           <td class="text-start truncate">{{ item.body }}</td>
         </tr>
@@ -26,13 +29,19 @@ export default {
         text: "",
         sortable: false,
         value: "sender",
-        width: "20%",
+        width: "2%",
+      },
+      {
+        text: "",
+        sortable: false,
+        value: "sender",
+        width: "15%",
       },
       {
         text: "",
         sortable: false,
         value: "body",
-        width: "60%",
+        width: "83%",
       },
       //   { sortable: false, align: "start", value: "body", width: "80%" },
       //   { text: "", value: "" },
