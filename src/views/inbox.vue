@@ -17,10 +17,11 @@
         })
       "
       :tableTitle="'Inbox'"
-    />
+    /><newMailButton />
   </v-container>
 </template>
 <script>
+import newMailButton from "../components/button/newMailButton.vue";
 import dataTable from "../components/table/dataTable.vue";
 import { database } from "../resources/mailDatabase";
 export default {
@@ -28,6 +29,7 @@ export default {
   data: () => ({ database }),
   components: {
     dataTable,
+    newMailButton,
   },
 
   computed: {},
