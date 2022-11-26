@@ -11,7 +11,7 @@
       <template v-slot:item="{ item }">
         <tr>
           <td class="text-start">
-            <v-checkbox></v-checkbox>
+            <v-checkbox color="accent"></v-checkbox>
           </td>
           <td class="text-start">{{ item.sender }}</td>
           <td class="text-start truncate">{{ item.body }}</td>
