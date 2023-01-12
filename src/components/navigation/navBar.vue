@@ -46,6 +46,23 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <template v-slot:append>
+        <v-card-title class="subtitle-1 font-weight-medium mb-n5 justify-center"
+          >Made By Arjun.V
+          <v-btn
+            v-for="(link, i) in links"
+            :key="i"
+            color="white"
+            icon
+            rounded
+            class="my-2"
+            :href="link.link"
+            target="_blank"
+          >
+            <v-icon>{{ link.icon }}</v-icon>
+          </v-btn></v-card-title
+        >
+      </template>
     </v-navigation-drawer>
     <app-bar /><newMailBottom
       :show="showNewMail"
@@ -64,6 +81,10 @@ export default {
   },
 
   data: () => ({
+    links: [
+      { icon: "mdi-github", link: "https://github.com/voidrlm" },
+      { icon: "mdi-twitter", link: "https://twitter.com/voidrlm" },
+    ],
     search: "",
     items: [
       { title: "Inbox", icon: "mdi-inbox", route: "/inbox" },
