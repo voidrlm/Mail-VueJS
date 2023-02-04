@@ -1,9 +1,12 @@
 # Mail
 A mail platform built with Vuejs and Vuetify.
 
-View Preview 
+## Live Demo
+Use a dummy e-mail and password to signup and continue
 
-https://imgur.com/a/a5XBklu
+<p>
+    <a href="https://voidrlm.github.io/Mail-VueJS/#/" target="_blank">Online Demo</a>
+</p>
 
 ## Features
 
